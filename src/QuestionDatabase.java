@@ -25,12 +25,6 @@ public class QuestionDatabase {
         this.genrer[1] = this.MusikFrågor;
         this.genrer[2] = this.SpelFrågor;
 
-    ArrayList[] listOfArrayQuestions = new ArrayList[3];
-
-    listOfArrayQuestions[0] = this.FilmFrågor;
-    listOfArrayQuestions[1] = this.MusikFrågor;
-    listOfArrayQuestions[2] = this.SpelFrågor;
-
         Path[] paths = new Path[3];
         paths[0] = Paths.get("src\\FilmFrågor.txt");
         paths[1] = Paths.get("src\\MusikFrågor.txt");
