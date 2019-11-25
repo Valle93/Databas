@@ -16,7 +16,7 @@ public class QuestionDatabase {
 
     public QuestionDatabase(){
 
-        this.genrer = new ArrayList[3];
+        this.genrer = new ArrayList[4];
 
         this.movieQuestions = new ArrayList<>();
         this.musicQuestions = new ArrayList<>();

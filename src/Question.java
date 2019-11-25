@@ -12,18 +12,39 @@ public class Question {
 
     public String toString(){
 
-        String frågaOchAlternativ = this.getQuestion() + "\n";
+        String questionAndAlternatives = this.getQuestion() + "\n";
 
         for (int i = 0; i < 4; i++) {
 
-            frågaOchAlternativ += this.getAnswers()[i].getClaim() + "\n";
+            questionAndAlternatives += this.getAnswers()[i].getClaim() + "\n";
         }
 
-        return frågaOchAlternativ;
+        return questionAndAlternatives;
 
     }
 
-    public void shuffleAnswers(){}
+    public void shuffleAnswers(){
+
+        Answer[] shuffled = this.getAnswers();
+
+        Answer tempAnswer;
+
+        for (int i = 0; i < 100; i++) {
+
+            byte randomOne = (byte)(Math.random()*3);
+
+            tempAnswer = shuffled[randomOne];
+
+            byte randomTwo = (byte)(Math.random()*3);
+
+            shuffled[randomOne] = shuffled[randomTwo];
+
+            shuffled[randomTwo] = tempAnswer;
+
+        }
+
+        this.setAnswers(shuffled);
+    }
 
     public String getQuestion() {
         return question;
