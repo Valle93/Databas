@@ -15,9 +15,11 @@ public class Controller {
         Path p = Paths.get("src\\sample\\Properties.txt");
 
         try (BufferedReader br = Files.newBufferedReader(p)) {
-
+            br.readLine();
             Main.name = br.readLine();
+            br.readLine(); br.readLine();
             Main.rounds = Integer.parseInt(br.readLine());
+            br.readLine(); br.readLine();
             Main.questionsPerRound = Integer.parseInt(br.readLine());
 
         } catch (IOException io) {
@@ -35,9 +37,15 @@ public class Controller {
 
             try (BufferedWriter bw = Files.newBufferedWriter(p)) {
 
+                bw.write("Player Name:");
+                bw.newLine();
                 bw.write(name);
+                bw.newLine(); bw.newLine();
+                bw.write("Rounds:");
                 bw.newLine();
                 bw.write(rounds);
+                bw.newLine(); bw.newLine();
+                bw.write("Questions Per Round:");
                 bw.newLine();
                 bw.write(questionsPerRound);
 
