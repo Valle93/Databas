@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,20 +24,20 @@ public class QuestionDatabase {
         this.gameQuestions = new ArrayList<>();
         this.javaQuestions = new ArrayList<>();
 
-        this.genrer[0] = this.movieQuestions;
-        this.genrer[1] = this.musicQuestions;
+        this.genrer[0] = this.musicQuestions;
+        this.genrer[1] = this.movieQuestions;
         this.genrer[2] = this.gameQuestions;
         this.genrer[3] = this.javaQuestions;
 
         Path[] paths = new Path[4];
-        paths[0] = Paths.get("src\\movieQuestions.txt");
-        paths[1] = Paths.get("src\\musicQuestions.txt");
+        paths[0] = Paths.get("src\\musicQuestions.txt");
+        paths[1] = Paths.get("src\\cool.txt");
         paths[2] = Paths.get("src\\gameQuestions.txt");
         paths[3] = Paths.get("src\\javaQuestions.txt");
 
         for (int i = 0; i < paths.length; i++) {
 
-            try(BufferedReader br = Files.newBufferedReader(paths[i])){
+            try(BufferedReader br = Files.newBufferedReader(paths[i], Charset.forName("ISO-8859-1"))){
 
                 String tempString;
 
@@ -53,10 +54,13 @@ public class QuestionDatabase {
 
                     this.genrer[i].add(questionObject);
 
+                    System.out.println("En fråga funkade!");
+
                 }
 
             }catch(IOException io){
                 io.printStackTrace();
+                System.out.println("Här gick nånting fel");
             }
         }
 
