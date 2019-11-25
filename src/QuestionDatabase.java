@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class QuestionDatabase {
 
 
-    private ArrayList[] genrer;
+    private ArrayList[] genres;
     private ArrayList<Question> movieQuestions;
     private ArrayList<Question> musicQuestions;
     private ArrayList<Question> gameQuestions;
@@ -17,21 +17,21 @@ public class QuestionDatabase {
 
     public QuestionDatabase(){
 
-        this.genrer = new ArrayList[4];
+        this.genres = new ArrayList[4];
 
         this.movieQuestions = new ArrayList<>();
         this.musicQuestions = new ArrayList<>();
         this.gameQuestions = new ArrayList<>();
         this.javaQuestions = new ArrayList<>();
 
-        this.genrer[0] = this.musicQuestions;
-        this.genrer[1] = this.movieQuestions;
-        this.genrer[2] = this.gameQuestions;
-        this.genrer[3] = this.javaQuestions;
+        this.genres[0] = this.musicQuestions;
+        this.genres[1] = this.movieQuestions;
+        this.genres[2] = this.gameQuestions;
+        this.genres[3] = this.javaQuestions;
 
         Path[] paths = new Path[4];
         paths[0] = Paths.get("src\\musicQuestions.txt");
-        paths[1] = Paths.get("src\\cool.txt");
+        paths[1] = Paths.get("src\\movieQuestions.txt");
         paths[2] = Paths.get("src\\gameQuestions.txt");
         paths[3] = Paths.get("src\\javaQuestions.txt");
 
@@ -45,22 +45,19 @@ public class QuestionDatabase {
 
                     String question = tempString;
 
-                    Answer[] answers = new Answer[4];
+                    String[] answers = new String[4];
                     for (int j = 0; j < 4; j++) {
-                        answers[j] = new Answer(br.readLine());
+                        answers[j] = br.readLine();
                     }
 
                     Question questionObject = new Question(question,answers);
 
-                    this.genrer[i].add(questionObject);
-
-                    System.out.println("En fråga funkade!");
+                    this.genres[i].add(questionObject);
 
                 }
 
             }catch(IOException io){
                 io.printStackTrace();
-                System.out.println("Här gick nånting fel");
             }
         }
 
@@ -90,12 +87,12 @@ public class QuestionDatabase {
         this.gameQuestions = gameQuestions;
     }
 
-    public ArrayList[] getGenrer() {
-        return genrer;
+    public ArrayList[] getGenres() {
+        return genres;
     }
 
-    public void setGenrer(ArrayList[] genrer) {
-        this.genrer = genrer;
+    public void setGenres(ArrayList[] genres) {
+        this.genres = genres;
     }
 
 

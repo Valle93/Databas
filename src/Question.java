@@ -1,13 +1,15 @@
 public class Question {
 
-    String question;
-    Answer[] answers;
 
-    public Question(String question, Answer[] answers){
+    String question;
+    String[] answers;
+    String correctAnswer;
+
+    public Question(String question, String[] answers){
 
         this.question = question;
         this.answers = answers;
-        this.answers[0].setisCorrect(true);
+        this.correctAnswer = answers[0];
     }
 
     public String toString(){
@@ -16,7 +18,7 @@ public class Question {
 
         for (int i = 0; i < 4; i++) {
 
-            questionAndAlternatives += this.getAnswers()[i].getClaim() + "\n";
+            questionAndAlternatives += this.getAnswers()[i] + "\n";
         }
 
         return questionAndAlternatives;
@@ -25,17 +27,21 @@ public class Question {
 
     public void shuffleAnswers(){
 
-        Answer[] shuffled = this.getAnswers();
+        String[] shuffled = this.getAnswers();
 
-        Answer tempAnswer;
+        String tempAnswer;
 
         for (int i = 0; i < 100; i++) {
 
             byte randomOne = (byte)(Math.random()*3);
 
+            System.out.println(randomOne);
+
             tempAnswer = shuffled[randomOne];
 
-            byte randomTwo = (byte)(Math.random()*3);
+            byte randomTwo = (byte)(Math.round(Math.random()*3));
+
+            System.out.println(randomTwo);
 
             shuffled[randomOne] = shuffled[randomTwo];
 
@@ -54,11 +60,15 @@ public class Question {
         this.question = question;
     }
 
-    public Answer[] getAnswers() {
+    public String[] getAnswers() {
         return answers;
     }
 
-    public void setAnswers(Answer[] answers) {
+    public void setAnswers(String[] answers) {
         this.answers = answers;
     }
+
+    public String getCorrectAnswer() { return correctAnswer; }
+
+    public void setCorrectAnswer(String correctAnswer) { this.correctAnswer = correctAnswer; }
 }
