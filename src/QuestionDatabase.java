@@ -9,29 +9,32 @@ public class QuestionDatabase {
 
 
     private ArrayList[] genrer;
-    private ArrayList<Question> FilmFrågor;
-    private ArrayList<Question> MusikFrågor;
-    private ArrayList<Question> SpelFrågor;
+    private ArrayList<Question> movieQuestions;
+    private ArrayList<Question> musicQuestions;
+    private ArrayList<Question> gameQuestions;
+    private ArrayList<Question> javaQuestions;
 
     public QuestionDatabase(){
 
         this.genrer = new ArrayList[3];
 
-        this.FilmFrågor = new ArrayList<>();
-        this.MusikFrågor = new ArrayList<>();
-        this.SpelFrågor = new ArrayList<>();
+        this.movieQuestions = new ArrayList<>();
+        this.musicQuestions = new ArrayList<>();
+        this.gameQuestions = new ArrayList<>();
+        this.javaQuestions = new ArrayList<>();
 
-        this.genrer[0] = this.FilmFrågor;
-        this.genrer[1] = this.MusikFrågor;
-        this.genrer[2] = this.SpelFrågor;
+        this.genrer[0] = this.movieQuestions;
+        this.genrer[1] = this.musicQuestions;
+        this.genrer[2] = this.gameQuestions;
+        this.genrer[3] = this.javaQuestions;
 
-        Path[] paths = new Path[3];
-        paths[0] = Paths.get("src\\FilmFrågor.txt");
-        paths[1] = Paths.get("src\\MusikFrågor.txt");
-        paths[2] = Paths.get("src\\SpelFrågor.txt");
+        Path[] paths = new Path[4];
+        paths[0] = Paths.get("src\\movieQuestions.txt");
+        paths[1] = Paths.get("src\\musicQuestions.txt");
+        paths[2] = Paths.get("src\\gameQuestions.txt");
+        paths[3] = Paths.get("src\\javaQuestions.txt");
 
-
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < paths.length; i++) {
 
             try(BufferedReader br = Files.newBufferedReader(paths[i])){
 
@@ -59,28 +62,28 @@ public class QuestionDatabase {
 
     }
 
-    public ArrayList<Question> getFilmFrågor() {
-        return FilmFrågor;
+    public ArrayList<Question> getMovieQuestions() {
+        return movieQuestions;
     }
 
-    public void setFilmFrågor(ArrayList<Question> filmFrågor) {
-        FilmFrågor = filmFrågor;
+    public void setMovieQuestions(ArrayList<Question> movieQuestions) {
+        this.movieQuestions = movieQuestions;
     }
 
-    public ArrayList<Question> getMusikFrågor() {
-        return MusikFrågor;
+    public ArrayList<Question> getMusicQuestions() {
+        return musicQuestions;
     }
 
-    public void setMusikFrågor(ArrayList<Question> musikFrågor) {
-        MusikFrågor = musikFrågor;
+    public void setMusicQuestions(ArrayList<Question> musicQuestions) {
+        this.musicQuestions = musicQuestions;
     }
 
-    public ArrayList<Question> getSpelFrågor() {
-        return SpelFrågor;
+    public ArrayList<Question> getGameQuestions() {
+        return gameQuestions;
     }
 
-    public void setSpelFrågor(ArrayList<Question> spelFrågor) {
-        SpelFrågor = spelFrågor;
+    public void setGameQuestions(ArrayList<Question> gameQuestions) {
+        this.gameQuestions = gameQuestions;
     }
 
     public ArrayList[] getGenrer() {

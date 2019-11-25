@@ -4,9 +4,9 @@ public class TestaEnDatabas {
 
         QuestionDatabase test = new QuestionDatabase();
 
-        System.out.println(test.getFilmFrågor().get(0));
+        System.out.println(test.getMovieQuestions().get(0));
         System.out.println("\n");
-        System.out.println(test.getFilmFrågor().get(1));
+        System.out.println(test.getMovieQuestions().get(1));
 
     }
 }

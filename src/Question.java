@@ -23,6 +23,8 @@ public class Question {
 
     }
 
+    public void shuffleAnswers(){}
+
     public String getQuestion() {
         return question;
     }
